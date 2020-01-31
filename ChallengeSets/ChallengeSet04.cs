@@ -5,7 +5,20 @@ namespace ChallengeSets
     {
         public int AddEvenSubtractOdd(int[] numbers)
         {
-            throw new NotImplementedException();
+            int AddEvens = 0;
+            int SubOdds = 0;
+            foreach (int num in numbers)
+            {
+                if (num % 2 == 0)
+                {
+                    AddEvens += num;
+                }
+                if (num % 2 != 0)
+                {
+                    SubOdds += num;
+                }
+            }
+            return AddEvens - SubOdds;
         }
 
         public int GetLengthOfShortestString(string str1, string str2, string str3, string str4)
@@ -15,7 +28,7 @@ namespace ChallengeSets
             {
                 SmallestString = str1.Length;
             }
-            if(SmallestString >= str2.Length)
+            if (SmallestString >= str2.Length)
             {
                 SmallestString = str2.Length;
             }
@@ -64,7 +77,13 @@ namespace ChallengeSets
 
         public bool IsStringANumber(string input)
         {
-            throw new NotImplementedException();
+            if (input == null)
+            {
+                return false;
+            }
+            double number = 0;
+            bool reply = double.TryParse(input, out number);
+            return reply;
         }
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
@@ -74,12 +93,34 @@ namespace ChallengeSets
 
         public double AverageEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            int AvgEvens = 0;
+            int count = 0;
+            foreach (int num in numbers)
+            {
+                if (num % 2 == 0)
+                {
+                    AvgEvens += num;
+                    count++;
+                }
+            }
+            double finalAVG = AvgEvens / count;
+            return finalAVG;
         }
 
         public int Factorial(int number)
         {
-            throw new NotImplementedException();
+            int test = number;
+            int fact = 1;
+            if (test < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            for (int i = 1; i <= number; i++)
+            {
+                fact = fact * i;
+            }
+            return fact;
+
         }
     }
 }
